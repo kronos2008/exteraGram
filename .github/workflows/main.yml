@@ -22,11 +22,14 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      - name: Set API keys from file
+      - name: Set API keys
         run: |
-          if [ -f "API_KEYS" ]; then
-            cat API_KEYS >> $GITHUB_ENV
-          fi
+          echo "APP_ID=32444842" >> $GITHUB_ENV
+          echo "APP_HASH=cbf37857fa6fe0fa2861de75661d2509" >> $GITHUB_ENV
+          echo "MAPS_V2_API=1234567890abcdef" >> $GITHUB_ENV
+          echo "SIGNING_KEY_STORE_PASSWORD=123456" >> $GITHUB_ENV
+          echo "SIGNING_KEY_ALIAS=mykey" >> $GITHUB_ENV
+          echo "SIGNING_KEY_PASSWORD=123456" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: |
