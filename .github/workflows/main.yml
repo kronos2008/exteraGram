@@ -22,6 +22,12 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
+      - name: Set API keys from file
+        run: |
+          if [ -f "API_KEYS" ]; then
+            cat API_KEYS >> $GITHUB_ENV
+          fi
+
       - name: Install dependencies
         run: |
           sudo apt update
